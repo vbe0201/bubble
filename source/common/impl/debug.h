@@ -18,17 +18,17 @@
 #include "macros/arch.h"
 #include "macros/attr.h"
 
-#if defined(BUBBLE_ARCH_AMD64) || defined(BUBBLE_ARCH_X86)
+#if defined(BLUBBER_ARCH_AMD64) || defined(BLUBBER_ARCH_X86)
     // It is actually important to use int3 instead of int $3 here.
     // While GAS optimizes both to desired CC, NASM produces CD 03.
     #define B_DEBUG_BREAK_IMPL() __asm__ __volatile__("int3")
 #elif defined(__thumb__)
     // See arm-linux-tdep.c in GDB source, eabi_linux_thumb_le_breakpoint.
     #define B_DEBUG_BREAK_IMPL() __asm__ __volatile__(".inst 0xd4200000")
-#elif defined(BUBBLE_ARCH_AARCH64)
+#elif defined(BLUBBER_ARCH_AARCH64)
     // See aarch64-tdep.c in GDB source, aarch64_default_breakpoint.
     #define B_DEBUG_BREAK_IMPL() __asm__ __volatile__(".inst 0xd4200000")
-#elif defined(BUBBLE_ARCH_ARM)
+#elif defined(BLUBBER_ARCH_ARM)
     // See arm-linux-tdep.c in GDB source, eabi_linux_arm_le_breakpoint.
     #define B_DEBUG_BREAK_IMPL() __asm__ __volatile__(".inst 0xe7f001f0")
 #endif

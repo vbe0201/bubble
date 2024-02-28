@@ -16,17 +16,17 @@
 #pragma once
 
 #if defined(__x86_64) || defined(__x86_64__) || defined(__amd64)
-    #define BUBBLE_ARCH amd64
-    #define BUBBLE_ARCH_AMD64 1
+    #define BLUBBER_ARCH amd64
+    #define BLUBBER_ARCH_AMD64 1
 #elif defined(__ARM64__) || defined(__aarch64__)
-    #define BUBBLE_ARCH aarch64
-    #define BUBBLE_ARCH_AARCH64 1
+    #define BLUBBER_ARCH aarch64
+    #define BLUBBER_ARCH_AARCH64 1
 #elif defined(__arm__) || defined(__TARGET_ARCH_ARM)
-    #define BUBBLE_ARCH arm
-    #define BUBBLE_ARCH_ARM 1
+    #define BLUBBER_ARCH arm
+    #define BLUBBER_ARCH_ARM 1
 #elif defined(__i386) || defined(__i386__)
-    #define BUBBLE_ARCH x86
-    #define BUBBLE_ARCH_X86 1
+    #define BLUBBER_ARCH x86
+    #define BLUBBER_ARCH_X86 1
 #else
     #error "Unsupported architecture for bubble detected!"
 #endif

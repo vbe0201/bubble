@@ -5,7 +5,7 @@ include_directories(.)
 ############################
 
 if(NOT LINUX)
-    message(FATAL_ERROR "bubble only supports Linux platforms")
+    message(FATAL_ERROR "blubber only supports Linux platforms")
 endif()
 
 add_compile_options(
