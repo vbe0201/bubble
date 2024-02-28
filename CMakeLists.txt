@@ -13,7 +13,7 @@ project(blubber
     )
 
 include(GitRevision)
-message(STATUS "Compiling blubber ${CMAKE_PROJECT_VERSION}, git revision ${BUBBLE_GIT_REV}")
+message(STATUS "Compiling blubber ${CMAKE_PROJECT_VERSION}, git revision ${BLUBBER_GIT_REV}")
 
 #########################
 ## CMake configuration ##

@@ -1,4 +1,4 @@
-add_executable(blubber $<TARGET_OBJECTS:bubble::arch> blubber.c)
+add_executable(blubber $<TARGET_OBJECTS:blubber::arch> blubber.c)
 target_compile_features(blubber PRIVATE c_std_23)
 target_compile_options(blubber PRIVATE
     -fno-exceptions
@@ -14,15 +14,15 @@ target_link_options(blubber PRIVATE
 target_link_libraries(blubber PRIVATE blubber::common)
 
 if(BLUBBER_OPT_ENABLE_ASAN)
-    target_compile_options(bubble PRIVATE -fsanitize=address -fsanitize=undefined)
-    target_link_options(bubble PRIVATE -fsanitize=address -fsanitize=undefined)
+    target_compile_options(blubber PRIVATE -fsanitize=address -fsanitize=undefined)
+    target_link_options(blubber PRIVATE -fsanitize=address -fsanitize=undefined)
 endif()
 
 if(BLUBBER_OPT_ENABLE_TSAN)
-    target_compile_options(bubble PRIVATE -fsanitize=thread)
-    target_link_options(bubble PRIVATE -fsanitize=thread)
+    target_compile_options(blubber PRIVATE -fsanitize=thread)
+    target_link_options(blubber PRIVATE -fsanitize=thread)
 endif()
 
 if(BLUBBER_OPT_ENABLE_LTO)
-    set_property(TARGET bubble PROPERTY INTERPROCEDURAL_OPTIMIZATION ON)
+    set_property(TARGET blubber PROPERTY INTERPROCEDURAL_OPTIMIZATION ON)
 endif()
