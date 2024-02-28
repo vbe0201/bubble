@@ -1,3 +1,5 @@
+include_directories(.)
+
 ############################
 ## Compiler configuration ##
 ############################
@@ -11,7 +13,6 @@ add_compile_options(
     -Werror=array-bounds
     -Werror=missing-declarations
     -Werror=missing-field-initializers
-    -Werror=reorder
     -Werror=sign-compare
     -Werror=switch
     -Werror=uninitialized
@@ -21,18 +22,16 @@ add_compile_options(
     -Wextra
     -Wmissing-declarations
     -Wno-attributes
-    -Wno-invalid-offsetof
     -Wno-unused-parameter
     -Wa,--noexecstack
     -static
-    $<$<CONFIG:RELEASE>:-fno-stack-protector>
-    $<$<CONFIG:RELEASE>:-ffunction-sections>
-    $<$<CONFIG:RELEASE>:-fdata-sections>
+    $<$<CONFIG:Release>:-fno-stack-protector>
+    $<$<CONFIG:Release>:-ffunction-sections>
+    $<$<CONFIG:Release>:-fdata-sections>
 )
 
 add_link_options(
-    $<$<CONFIG:RELEASE>:-Wl,--gc-sections>
-    $<$<CONFIG:RELEASE>:-Wl>
+    $<$<CONFIG:Release>:-Wl,--gc-sections>
 )
 
 if(LINUX OR MINGW)
@@ -50,3 +49,4 @@ endif()
 
 add_subdirectory(arch)
 add_subdirectory(bin)
+add_subdirectory(common)

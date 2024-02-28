@@ -13,7 +13,7 @@ project(blubber
     )
 
 include(GitRevision)
-message(STATUS "Compiling bubble ${CMAKE_PROJECT_VERSION}, git revision ${BUBBLE_GIT_REV}")
+message(STATUS "Compiling blubber ${CMAKE_PROJECT_VERSION}, git revision ${BUBBLE_GIT_REV}")
 
 #########################
 ## CMake configuration ##
@@ -42,9 +42,9 @@ if(NOT CMAKE_BUILD_TYPE)
 endif()
 
 # Define customization options for the build.
-option(BUBBLE_OPT_ENABLE_ASAN "Enables the AddressSanitizer for bubble" OFF)
-option(BUBBLE_OPT_ENABLE_TSAN "Enables the ThreadSanitizer for bubble" OFF)
-option(BUBBLE_OPT_ENABLE_LTO "Builds bubble with LTO" OFF)
+option(BLUBBER_OPT_ENABLE_ASAN "Enables the AddressSanitizer for blubber" OFF)
+option(BLUBBER_OPT_ENABLE_TSAN "Enables the ThreadSanitizer for blubber" OFF)
+option(BLUBBER_OPT_ENABLE_LTO "Builds blubber with LTO" OFF)
 
 ####################
 ## Subdirectories ##
