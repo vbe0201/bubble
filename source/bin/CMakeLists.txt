@@ -9,6 +9,7 @@ target_link_options(blubber PRIVATE
     -nostdlib
     -nostartfiles
     -ffreestanding
+    $<$<CONFIG:RELEASE>:-Wl,-nmagic>
     $<$<CONFIG:RELEASE>:-s>
     )
 target_link_libraries(blubber PRIVATE blubber::common)

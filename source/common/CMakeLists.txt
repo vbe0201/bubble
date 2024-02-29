@@ -3,6 +3,8 @@ add_library(blubber_common STATIC
     macros/arch.h
     macros/attr.h
     assert.h
+    syscall.h
+    types.h
 
     assert.c
     )
