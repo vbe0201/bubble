@@ -6,14 +6,14 @@ cmake_minimum_required(VERSION 3.27 FATAL_ERROR)
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 
-project(blubber
+project(bubble
     DESCRIPTION "A web server written in C"
     VERSION "0.1.0"
     LANGUAGES C ASM
     )
 
 include(GitRevision)
-message(STATUS "Compiling blubber ${CMAKE_PROJECT_VERSION}, git revision ${BLUBBER_GIT_REV}")
+message(STATUS "Compiling bubble ${CMAKE_PROJECT_VERSION}, git revision ${BUBBLE_GIT_REV}")
 
 #########################
 ## CMake configuration ##
@@ -42,9 +42,9 @@ if(NOT CMAKE_BUILD_TYPE)
 endif()
 
 # Define customization options for the build.
-option(BLUBBER_OPT_ENABLE_ASAN "Enables the AddressSanitizer for blubber" OFF)
-option(BLUBBER_OPT_ENABLE_TSAN "Enables the ThreadSanitizer for blubber" OFF)
-option(BLUBBER_OPT_ENABLE_LTO "Builds blubber with LTO" OFF)
+option(BUBBLE_OPT_ENABLE_ASAN "Enables the AddressSanitizer for bubble" OFF)
+option(BUBBLE_OPT_ENABLE_TSAN "Enables the ThreadSanitizer for bubble" OFF)
+option(BUBBLE_OPT_ENABLE_LTO "Builds bubble with LTO" OFF)
 
 ####################
 ## Subdirectories ##

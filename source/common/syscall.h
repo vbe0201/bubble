@@ -18,7 +18,7 @@
 #include "types.h"
 #include "macros/arch.h"
 
-#if defined(BLUBBER_ARCH_AMD64)
+#if defined(BUBBLE_ARCH_AMD64)
     #include "syscall/syscall.amd64.h"
 #else
     #error "Missing syscall implementation for target architecture!"

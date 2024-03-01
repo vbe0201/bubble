@@ -22,7 +22,7 @@
 ///
 /// In release builds, the asserted condition may be turned into a
 /// \ref ASSUME hint for the compiler to optimize around.
-#if defined(BLUBBER_ENABLE_DEBUG_ASSERTIONS)
+#if defined(BUBBLE_ENABLE_DEBUG_ASSERTIONS)
     #define B_ASSERT(expr) B_ASSERT_IMPL(expr)
 #else
     #define B_ASSERT(expr) ASSUME(expr)

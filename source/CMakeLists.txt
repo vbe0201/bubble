@@ -5,7 +5,7 @@ include_directories(.)
 ############################
 
 if(NOT LINUX)
-    message(FATAL_ERROR "blubber only supports Linux platforms")
+    message(FATAL_ERROR "bubble only supports Linux platforms")
 endif()
 
 add_compile_options(
@@ -25,7 +25,7 @@ add_compile_options(
     -Wno-unused-parameter
     -Wa,--noexecstack
     -static
-    $<$<CONFIG:Release>:-fno-stack-protector>
+    -fno-stack-protector
     $<$<CONFIG:Release>:-ffunction-sections>
     $<$<CONFIG:Release>:-fdata-sections>
 )

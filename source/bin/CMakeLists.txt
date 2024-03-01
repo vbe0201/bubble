@@ -1,29 +1,28 @@
-add_executable(blubber $<TARGET_OBJECTS:blubber::arch> blubber.c)
-target_compile_features(blubber PRIVATE c_std_23)
-target_compile_options(blubber PRIVATE
+add_executable(bubble $<TARGET_OBJECTS:bubble::arch> bubble.c)
+target_compile_features(bubble PRIVATE c_std_23)
+target_compile_options(bubble PRIVATE
     -fno-exceptions
     -fno-unwind-tables
     -fno-asynchronous-unwind-tables
     )
-target_link_options(blubber PRIVATE
+target_link_options(bubble PRIVATE
     -nostdlib
     -nostartfiles
     -ffreestanding
     $<$<CONFIG:RELEASE>:-Wl,-nmagic>
     $<$<CONFIG:RELEASE>:-s>
     )
-target_link_libraries(blubber PRIVATE blubber::common)
 
-if(BLUBBER_OPT_ENABLE_ASAN)
-    target_compile_options(blubber PRIVATE -fsanitize=address -fsanitize=undefined)
-    target_link_options(blubber PRIVATE -fsanitize=address -fsanitize=undefined)
+if(BUBBLE_OPT_ENABLE_ASAN)
+    target_compile_options(bubble PRIVATE -fsanitize=address -fsanitize=undefined)
+    target_link_options(bubble PRIVATE -fsanitize=address -fsanitize=undefined)
 endif()
 
-if(BLUBBER_OPT_ENABLE_TSAN)
-    target_compile_options(blubber PRIVATE -fsanitize=thread)
-    target_link_options(blubber PRIVATE -fsanitize=thread)
+if(BUBBLE_OPT_ENABLE_TSAN)
+    target_compile_options(bubble PRIVATE -fsanitize=thread)
+    target_link_options(bubble PRIVATE -fsanitize=thread)
 endif()
 
-if(BLUBBER_OPT_ENABLE_LTO)
-    set_property(TARGET blubber PROPERTY INTERPROCEDURAL_OPTIMIZATION ON)
+if(BUBBLE_OPT_ENABLE_LTO)
+    set_property(TARGET bubble PROPERTY INTERPROCEDURAL_OPTIMIZATION ON)
 endif()

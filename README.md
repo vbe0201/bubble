@@ -1,4 +1,4 @@
-# blubber
+# bubble
 
 A tiny and fast web server written in C23.
 
@@ -14,6 +14,6 @@ Just an experiment to challenge myself. You probably shouldn't use it.
 
 ## License
 
-blubber is licensed under the terms of the GNU GPLv2.
+bubble is licensed under the terms of the GNU GPLv2.
 
 A copy can be found in the [`LICENSE` file](./LICENSE).
