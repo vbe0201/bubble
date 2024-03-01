@@ -28,4 +28,4 @@
 /**
  * @brief Invokes a system call with a variable number of arguments.
  */
-#define syscall(num, ...) B_VMACRO(syscall, __VA_ARGS__)(num, ##__VA_ARGS__)
+#define syscall(num, ...) B_VMACRO(syscall, ##__VA_ARGS__)(num, ##__VA_ARGS__)

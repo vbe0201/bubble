@@ -15,7 +15,7 @@
  */
 #pragma once
 
-#define B__NARG__(...) B__NARG_I_(__VA_ARGS__, B__RSEQ_N())
+#define B__NARG__(...) B__NARG_I_(__VA_ARGS__ __VA_OPT__(,) B__RSEQ_N())
 #define B__NARG_I_(...) B__ARG_N(__VA_ARGS__)
 #define B__ARG_N(                                     \
      _1,  _2,  _3,  _4,  _5,  _6,  _7,  _8,  _9, _10, \
