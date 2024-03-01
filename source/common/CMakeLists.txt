@@ -1,12 +1,20 @@
+# We need to make sure GCC doesn't replace the implementations
+# of our routines with recursive calls to the function itself.
+set_source_files_properties(memory.c PROPERTIES
+    COMPILE_OPTIONS "-fno-builtin"
+    )
+
 add_library(bubble_common STATIC
     impl/debug.h
     macros/arch.h
     macros/attr.h
     assert.h
+    memory.h
     syscall.h
     types.h
 
     assert.c
+    memory.c
     )
 add_library(bubble::common ALIAS bubble_common)
 

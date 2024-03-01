@@ -15,17 +15,47 @@
  */
 #pragma once
 
-#include <stddef.h>
-#include <stdint.h>
+#include "macros/arch.h"
 
-typedef uint8_t   u8;
-typedef uint16_t  u16;
-typedef uint32_t  u32;
-typedef uint64_t  u64;
-typedef uintptr_t usize;
+#if defined(BUBBLE_ARCH_AMD64)
+    /* Unsigned integer types. */
+    typedef unsigned char u8;
+    typedef unsigned short u16;
+    typedef unsigned int u32;
+    #ifdef __APPLE__
+        typedef unsigned long long u64;
+    #else
+        typedef unsigned long u64;
+    #endif
+    typedef unsigned long uptr;
+    typedef unsigned long usize;
 
-typedef int8_t   i8;
-typedef int16_t  i16;
-typedef int32_t  i32;
-typedef int64_t  i64;
-typedef intptr_t isize;
+    /* Signed integer types. */
+    typedef signed char i8;
+    typedef signed short i16;
+    typedef signed int i32;
+    #ifdef __APPLE__
+        typedef signed long long i64;
+    #else
+        typedef signed long i64;
+    #endif
+    typedef long iptr;
+    typedef long isize;
+
+    /* Floating-point types. */
+    typedef float f32;
+    typedef double f64;
+
+#else
+    #error "Missing types for target architecture!"
+#endif
+
+static_assert(sizeof(u8) == sizeof(i8));
+static_assert(sizeof(u16) == sizeof(i16));
+static_assert(sizeof(u32) == sizeof(i32));
+static_assert(sizeof(u64) == sizeof(i64));
+static_assert(sizeof(uptr) == sizeof(iptr));
+static_assert(sizeof(usize) == sizeof(isize));
+
+static_assert(sizeof(u32) == sizeof(f32));
+static_assert(sizeof(u64) == sizeof(f64));

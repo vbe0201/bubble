@@ -12,6 +12,7 @@ target_link_options(bubble PRIVATE
     $<$<CONFIG:RELEASE>:-Wl,-nmagic>
     $<$<CONFIG:RELEASE>:-s>
     )
+target_link_libraries(bubble PRIVATE bubble::common)
 
 if(BUBBLE_OPT_ENABLE_ASAN)
     target_compile_options(bubble PRIVATE -fsanitize=address -fsanitize=undefined)

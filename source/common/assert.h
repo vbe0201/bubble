@@ -17,11 +17,13 @@
 
 #include "macros/attr.h"
 
-/// Asserts a given condition in debug builds and aborts execution
-/// when not met.
-///
-/// In release builds, the asserted condition may be turned into a
-/// \ref ASSUME hint for the compiler to optimize around.
+/**
+ * @brief Asserts a given condition in debug builds and aborts
+ *        execution not met.
+ *
+ * In release builds, the asserted condition may be turned into a
+ * \ref ASSUME hint for the compiler to optimize around.
+ */
 #if defined(BUBBLE_ENABLE_DEBUG_ASSERTIONS)
     #define B_ASSERT(expr) B_ASSERT_IMPL(expr)
 #else

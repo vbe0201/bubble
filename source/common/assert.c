@@ -22,7 +22,7 @@ COLD NORETURN NOINLINE void assert_fail_impl(const char *expr, const char *file,
     (void)file;
     (void)line;
 
-    // TODO: Print diagnostics?
+    /* TODO: Print diagnostics? */
 
     for (;;) {
         debug_break();
