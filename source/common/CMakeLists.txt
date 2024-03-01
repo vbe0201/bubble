@@ -8,6 +8,7 @@ add_library(bubble_common STATIC
     impl/debug.h
     macros/arch.h
     macros/attr.h
+    macros/misc.h
     assert.h
     memory.h
     syscall.h
